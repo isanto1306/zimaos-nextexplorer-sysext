@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# Editors
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+
+# Build output
+dist/
+build/
+
+# System extension output
+*.raw
+*.img
+
+# SSH
+known_hosts
