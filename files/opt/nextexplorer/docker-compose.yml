@@ -1,0 +1,38 @@
+name: nextexplorer
+
+services:
+  nextexplorer:
+    image: nxzai/explorer:latest
+    container_name: nextexplorer
+
+    restart: unless-stopped
+
+    environment:
+      - NODE_ENV=development
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - SEARCH_MAX_RESULTS=200
+      - SEARCH_TIMEOUT_MS=10000
+      - EDITOR_EXTENSIONS=.txt,.md,.json,.yaml,.yml,.conf,.log,.xml,.ini,.sh,.py,.js,.css,.html
+
+    ports:
+      - "6000:3000"
+
+    security_opt:
+      - no-new-privileges:true
+
+    volumes:
+      - /DATA/AppData/nextexplorer/config:/config
+      - /DATA/AppData/nextexplorer/cache:/cache
+      - /DATA:/mnt/NAS
+
+x-casaos:
+  author: isanto1306
+  category: Utilities
+  icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/nextexplorer.png
+  index: /
+  port_map: "6000"
+  scheme: http
+  title:
+    custom: NextExplorer
